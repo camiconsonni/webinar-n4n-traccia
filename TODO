@@ -1,0 +1,16 @@
+
+Todo:
+  ✔ JS Test @done(21-11-13 17:07)
+  ✔ Linter (static analysis) @done(21-11-13 17:07)
+  ☐ CI - Github actions
+  ☐ Branch permissions
+  ☐ TDD
+  ☐ PR Approval
+  Phases:
+    ✔ t0 -> bici ferma @done(21-11-14 10:22)
+    ✔ t1-tizia -> bici + tizia ferma @done(21-11-14 10:56)
+    ✔ t1-vento -> bici + vento fermo @done(21-11-14 10:56)
+    ✔ t2 -> tizia animata + vento fermo @done(21-11-14 10:23)
+    ✔ t3 -> tizia animata + vento animato (rotto) @done(21-11-14 10:41)
+    ✔ t4 -> tizia animata + vento animato (ok) @done(21-11-14 10:43)
+  ☐ Scrivere gli step da fare nel readme
