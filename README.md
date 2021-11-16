@@ -128,11 +128,17 @@ Realease manager fa pr da `shared` a `master` e mergia
 Team Leader:
 - stacca branch `sprint3-test` da `shared`
 - scrive il test per la modifica
+```
+// TODO: codice test
+```
 - mergia branch `sprint3-test` in `shared`
 
 Dev Junior:
 - stacca branch `sprint3` da `shared`
 - fa la modifica al codice (non fuzionante per il test)
+```
+// TODO: codice
+```
 - runna i test e falliscono
 - sistema e rirunna i test --> TEST OK
 - pr da branch `sprint3-test` a `shared`
