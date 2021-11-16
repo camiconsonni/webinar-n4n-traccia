@@ -127,7 +127,7 @@ Realease manager fa pr da `shared` a `master` e mergia
 - **Environments**: PROD, SHARED, FRN2, STREAM1, STREAM2
 
 Team Leader:
-- stacca branch `sprint3-test` da `shared`
+- stacca branch `sprint3` da `shared`
 - scrive il test per la modifica
 ```
 // __mocks__/api
@@ -144,7 +144,6 @@ it('test newVisit API call', () => {
    return newVisit(new Date(), 'es').then(res => expect(res).toEqual(true))
 })
 ```
-- mergia branch `sprint3-test` in `shared`
 
 Dev Junior:
 - stacca branch `sprint3` da `shared`
@@ -165,7 +164,7 @@ async function newVisit(timestamp, lang) {
 ```
 - runna i test e falliscono
 - sistema e rirunna i test --> TEST OK
-- pr da branch `sprint3-test` a `shared`
+- pr da branch `sprint3` a `shared`
 
 Release manager mergia la PR in `shared`
 Realease manager fa pr da `shared` a `master` e mergia
@@ -173,4 +172,10 @@ Realease manager fa pr da `shared` a `master` e mergia
 # Sprint4
 - **Stato avanzamento**: bici animata + tizia animata + vento animato (ok)
 - **Argomenti**: Hotfix
-- **Environments**: PROD, SHARED, ...
+- **Environments**: PROD, SHARED, FRN2, STREAM1, STREAM2, HOTFIX
+
+Release manager configura ambiente di hotfix:
+- crea branch `ci` da `master`
+- crea folder `hotfix` in `environments` copiando il contenuto da hotfix
+- crea pipeline per ambiente `hotfix` (copia da master e cambia path nello step di build)
+- spiegare merge-back
