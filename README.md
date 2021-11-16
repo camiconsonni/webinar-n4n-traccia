@@ -93,17 +93,20 @@ Mostrare gli errori nei file in vs code:
 
 Aggiungiamo Linting alla CI?
 ```
-name: CI
-on: push
-jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install modules
-      run: yarn
-    - name: Run ESLint
-      run: eslint . --ext .js,.jsx,.ts,.tsx
+      with:
+        fetch-depth: 0
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+    - shell: bash
+      run: |
+        npm install
+        npm run lint
 ```
 
 ## Branch Permissions
