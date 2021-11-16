@@ -91,7 +91,7 @@ Mostrare gli errori nei file in vs code:
 }
 ```
 
-Aggiungiamo Linting alla CI?
+Aggiungere job `lint` alla CI:
 ```
   lint:
     runs-on: ubuntu-latest
@@ -118,6 +118,7 @@ Fornitore 2 su branch `frn2`:
 - crea pull request da `frn2` a `shared`
 
 Release manager mergia la PR in `shared`
+
 Realease manager fa pr da `shared` a `master` e mergia
 
 # Sprint3
@@ -129,7 +130,19 @@ Team Leader:
 - stacca branch `sprint3-test` da `shared`
 - scrive il test per la modifica
 ```
-// TODO: codice test
+// __mocks__/api
+function post(url, body) {
+  return new Promise(function (resolve, reject) {
+    if (!body.timestamp || !body.lang) reject(new Error('missing parameters'))
+    resolve({ success: true })
+  })
+}
+// index.test.js
+const newVisit = require('./index')
+it('test newVisit API call', () => {
+   expect.assertions(1)
+   return newVisit(new Date(), 'es').then(res => expect(res).toEqual(true))
+})
 ```
 - mergia branch `sprint3-test` in `shared`
 
@@ -137,7 +150,18 @@ Dev Junior:
 - stacca branch `sprint3` da `shared`
 - fa la modifica al codice (non fuzionante per il test)
 ```
-// TODO: codice
+// index.js
+async function newVisit(timestamp, lang) {
+  try {
+    const res = await API.post(
+      'https://www.fantozziefigli.com/services/new-visit',
+      { timestamp, lang }
+    )
+    return res.success
+  } catch (e) {
+    console.error(e)
+  }
+}
 ```
 - runna i test e falliscono
 - sistema e rirunna i test --> TEST OK
